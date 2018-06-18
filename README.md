@@ -1,6 +1,14 @@
 # Showcase3D
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+this application is useful to upload and share 3D models.
+
+
+![img](https://github.com/ircube/showcase3D/tree/master/src/assets/Showcase3DDesign.png "img")
+
+
+this project uses:
+* Three.js
+* Angular 6
 
 ## Development server
 
