@@ -3,7 +3,7 @@
 this application is useful to upload and share 3D models.
 
 
-![img](https://github.com/ircube/showcase3D/tree/master/src/assets/Showcase3DDesign.png "img")
+![img](https://github.com/ircube/showcase3D/blob/master/src/assets/readme/Showcase3DDesign.png "img")
 
 
 this project uses:
