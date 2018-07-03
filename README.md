@@ -2,13 +2,14 @@
 
 this application is useful to upload and share 3D models.
 
-
 ![img](https://github.com/ircube/showcase3D/blob/master/src/assets/readme/Showcase3DDesign.png "img")
-
 
 this project uses:
 * Three.js
 * Angular 6
+
+## DEMO:
+https://github.com/ircube/showcase3D
 
 ## Development server
 
