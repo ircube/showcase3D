@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Injector, Input } from '@angular/core';
 
-
-import * as THREE from 'three';
 import { SceneComponent } from '../scene/scene.component';
+import Object3D from '../../classes/Object3D';
 
 @Component({
   selector: 'object3D',
@@ -16,27 +15,8 @@ export class Object3dComponent implements OnInit {
   constructor(private inj:Injector) { }
   
   ngOnInit() {
-    let parentComponent = this.inj.get(SceneComponent);
-    this.scene = parentComponent.scene;
-
-    let geometry = new THREE.BoxGeometry( 1, 1, 1 );
-
-    let material = new THREE.MeshBasicMaterial( { color: this.color } );
-    let cube = new THREE.Mesh( geometry, material );
-    cube.position.set(
-      this.randInt(-3,3), 
-      this.randInt(-3,3), 
-      this.randInt(-3,3)
-    );
-    
-    this.scene.scene.add( cube );
-
-
-    console.log(parentComponent);
+    this.scene = this.inj.get(SceneComponent).scene;
+    let object3D = new Object3D(this.scene.scene, this.color);
+    object3D.setColor('green');
   }
-
-  randInt(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
-
 }
