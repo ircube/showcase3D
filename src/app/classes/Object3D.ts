@@ -1,30 +1,35 @@
 import * as THREE from 'three';
 import { debug } from 'util';
-
+import { getRandomColor } from './Tools';
 
 export default class Object3D {
-    mesh3D
-    color
-    scene
-    constructor(scene:THREE.Scene, color) {
+    
+    private mesh3D: THREE.Mesh;
+    
+    constructor(
+        private scene: THREE.Scene,
+        private color?: string,
+        private position?: THREE.Vector3 ) {
         this.scene = scene;
-        let geometry = new THREE.BoxGeometry( 1, 1, 1 );
-        
-        let material = new THREE.MeshBasicMaterial( { color: color } );
-        let mesh3D = new THREE.Mesh( geometry, material );
-        mesh3D.position.set(
-          this.randInt(-3,3), 
-          this.randInt(-3,3), 
-          this.randInt(-3,3)
+        let geometry = new THREE.BoxGeometry(1, 1, 1);
+
+        let material = new THREE.MeshBasicMaterial({ color: color?color:getRandomColor() });
+        this.mesh3D = new THREE.Mesh(geometry, material);
+        this.mesh3D.position.set(
+            this.randInt(-3, 3),
+            this.randInt(-3, 3),
+            this.randInt(-3, 3)
         );
-        this.scene.add( mesh3D );
+        this.scene.add(this.mesh3D);
     }
-    public setPosition(){}
-    public setColor(color){
+
+    public setPosition() {}
+    
+    public setColor(color) {
         this.color = color;
     }
 
     randInt(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
-      }
+    }
 }

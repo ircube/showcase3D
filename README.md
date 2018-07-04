@@ -9,7 +9,7 @@ this project uses:
 * Angular 6
 
 ## DEMO:
-https://github.com/ircube/showcase3D
+https://ivo-rojas.firebaseapp.com/
 
 ## Development server
 

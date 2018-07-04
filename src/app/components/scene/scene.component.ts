@@ -41,6 +41,3 @@ export class SceneComponent implements OnInit {
     this.scene = new Scene(container,color);
   }
 }
-
-
-

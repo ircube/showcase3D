@@ -4,14 +4,15 @@ import * as OB from 'three-orbit-controls';
 let OrbitControls = OB(THREE);
 
 export class Scene {
-    scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
-    renderer;
-    canvas:HTMLCanvasElement;
-    container
-    //cube;
-
+    private scene: THREE.Scene;
+    private camera: THREE.PerspectiveCamera;
+    private renderer: THREE.WebGLRenderer;
+    private canvas: HTMLCanvasElement;
+    private container: HTMLElement
+    
     constructor(container:HTMLElement,color){
+        this.scene = new THREE.Scene();
+        this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
         this.container = container;
         this.canvas = document.createElement('canvas');
         this.canvas.id     = "CursorLayer";
@@ -40,8 +41,6 @@ export class Scene {
          let controls = new OrbitControls( this.camera, this.renderer.domElement );
             controls.target.set( 0, 1, 0 );
             controls.update();
-
-
     }
     
     onWindowResize(){
