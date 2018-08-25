@@ -1,3 +1,5 @@
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { 
   Component, 
   OnInit, 
@@ -5,7 +7,12 @@ import {
   ViewChild,
   forwardRef 
 } from '@angular/core';
+
 import { Scene } from '../../classes/Scene';
+
+interface AppState {
+  message: string;
+}
 
 @Component({
   selector: 'scene',
@@ -16,12 +23,21 @@ export class SceneComponent implements OnInit {
   @Input() color:string;
   @ViewChild('scene') sceneTag:any;
 
+  message$: Observable<string>;
   sceneContainer: HTMLElement;
   scene:Scene;
   
-  constructor() {
-
+  constructor(private store:Store<AppState>) {
+    this.message$ = this.store.select('message');
   }
+
+  spanishMessage() {
+    this.store.dispatch({type: 'SPANISH'})
+  }
+   frenchMessage() {
+    this.store.dispatch({type: 'FRENCH'})
+  }
+
 
   ngOnInit() {
     this.setupHtml();
