@@ -5,7 +5,8 @@ import {
   OnInit, 
   Input,
   ViewChild,
-  forwardRef 
+  forwardRef, 
+  AfterViewInit
 } from '@angular/core';
 
 import { Scene } from '../../classes/Scene';
@@ -19,7 +20,7 @@ interface AppState {
   templateUrl: './scene.component.html',
   styleUrls: ['./scene.component.css']
 })
-export class SceneComponent implements OnInit {
+export class SceneComponent implements OnInit, AfterViewInit {
   @Input() color:string;
   @ViewChild('scene') sceneTag:any;
 
@@ -56,4 +57,9 @@ export class SceneComponent implements OnInit {
   setupThreeScene(container, color){
     this.scene = new Scene(container,color);
   }
+
+  ngAfterViewInit(): void {
+    this.scene.onWindowResize();
+  }
+  
 }

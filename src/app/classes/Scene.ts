@@ -27,7 +27,6 @@ export class Scene {
             antialias: true // smooth edges
         });
 
-    
         this.container.appendChild(this.renderer.domElement);
         this.renderer.setSize( this.canvas.width, this.canvas.height );
 
@@ -43,13 +42,12 @@ export class Scene {
             controls.update();
     }
     
-    onWindowResize(){
-        //xdebugger;
+    public onWindowResize(){
         this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
-        this.camera.updateProjectionMatrix();
-
+        //this.camera.updateProjectionMatrix();
+        
         this.renderer.setSize( this.container.clientWidth, this.container.clientHeight );
-
+        this.camera.updateProjectionMatrix();
     }
 
     animate(){

@@ -17,6 +17,7 @@
     "@angular/core": "^6.1.4",
     "@angular/forms": "^6.1.4",
     "@angular/http": "^6.1.4",
+    "@angular/material": "^6.4.6",
     "@angular/platform-browser": "^6.1.4",
     "@angular/platform-browser-dynamic": "^6.1.4",
     "@angular/router": "^6.1.4",
@@ -25,7 +26,8 @@
     "rxjs": "^6.2.2",
     "three": "^0.93.0",
     "three-orbit-controls": "^82.1.0",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "@angular/cdk": "^6.2.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.8",
