@@ -14,7 +14,15 @@ export class MyNavComponent {
     .pipe(
       map(result => result.matches)
     );
-    
-  constructor(private breakpointObserver: BreakpointObserver) {}
-  
+
+  constructor(private breakpointObserver: BreakpointObserver) { }
+
+  onToggleDrawer(drawer, scene) {
+    const res = drawer.toggle();
+    res.then(() => {
+      scene.scene.onWindowResize();
+    });
+
   }
+
+}

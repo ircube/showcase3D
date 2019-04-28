@@ -1,11 +1,11 @@
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { 
-  Component, 
-  OnInit, 
+import {
+  Component,
+  OnInit,
   Input,
   ViewChild,
-  forwardRef, 
+  forwardRef,
   AfterViewInit
 } from '@angular/core';
 
@@ -16,50 +16,49 @@ interface AppState {
 }
 
 @Component({
-  selector: 'scene',
+  selector: 'scene-3d',
   templateUrl: './scene.component.html',
   styleUrls: ['./scene.component.css']
 })
 export class SceneComponent implements OnInit, AfterViewInit {
-  @Input() color:string;
-  @ViewChild('scene') sceneTag:any;
+  @Input() color: string;
+  @ViewChild('scene') sceneTag: any;
 
   message$: Observable<string>;
   sceneContainer: HTMLElement;
-  scene:Scene;
-  
-  constructor(private store:Store<AppState>) {
+  scene: Scene;
+
+  constructor(private store: Store<AppState>) {
     this.message$ = this.store.select('message');
   }
 
   spanishMessage() {
-    this.store.dispatch({type: 'SPANISH'})
-  }
-   frenchMessage() {
-    this.store.dispatch({type: 'FRENCH'})
+    this.store.dispatch({ type: 'SPANISH' });
   }
 
+  frenchMessage() {
+    this.store.dispatch({ type: 'FRENCH' });
+  }
 
   ngOnInit() {
     this.setupHtml();
-    this.setupThreeScene(this.sceneContainer,this.color);
+    this.setupThreeScene(this.sceneContainer, this.color);
   }
 
-  setupHtml(){
+  setupHtml() {
     document.body.style.margin = '0px';
-    let sceneStyle: CSSStyleDeclaration =  
+    const sceneStyle: CSSStyleDeclaration =
       this.sceneTag.nativeElement.style;
     sceneStyle.backgroundColor = this.color;
 
     this.sceneContainer = this.sceneTag.nativeElement;
   }
 
-  setupThreeScene(container, color){
-    this.scene = new Scene(container,color);
+  setupThreeScene(container, color) {
+    this.scene = new Scene(container, color);
   }
 
   ngAfterViewInit(): void {
     this.scene.onWindowResize();
   }
-  
 }

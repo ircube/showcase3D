@@ -14,27 +14,20 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="sidenav-content">
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
+    <mat-toolbar color="primary" (click)="onToggleDrawer(drawer,scene)">
+      <img src="assets/logo.svg" style="width: 20px; height: 20px; padding: 10px;" alt="logo">
       <span>showcase3D</span>
     </mat-toolbar>
-    <scene color='rgba(30, 30, 30, 1)'>
-      <object3D color='green'></object3D>
-      <object3D color='black'></object3D>
-      <object3D color='white'></object3D>
-      <object3D color='yellow'></object3D>
-      <object3D color='cyan'></object3D>
-      <object3D ></object3D>
-      <object3D ></object3D>
-      <object3D ></object3D>
-      <object3D ></object3D>
-    </scene>
+    <scene-3d #scene color='rgba(30, 30, 30, 1)'>
+      <object-3d color='green'></object-3d>
+      <object-3d color='black'></object-3d>
+      <object-3d color='white'></object-3d>
+      <object-3d color='yellow'></object-3d>
+      <object-3d color='cyan'></object-3d>
+      <object-3d ></object-3d>
+      <object-3d ></object-3d>
+      <object-3d ></object-3d>
+      <object-3d ></object-3d>
+    </scene-3d>
   </mat-sidenav-content>
 </mat-sidenav-container>
