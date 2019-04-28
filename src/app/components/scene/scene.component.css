@@ -1,0 +1,5 @@
+#scene-3d {
+    width: 100%;
+    height: calc(100% - 56px);
+    overflow: hidden;
+}
