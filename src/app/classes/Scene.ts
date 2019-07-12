@@ -29,8 +29,6 @@ export class Scene {
         this.container.appendChild(this.renderer.domElement);
         this.renderer.setSize(this.canvas.width, this.canvas.height);
 
-
-
         this.camera.position.z = 5;
 
         this.animate();

@@ -9,7 +9,8 @@ export default class Object3D {
     constructor(
         private scene: THREE.Scene,
         private color?: string,
-        private position?: THREE.Vector3) {
+        private position?: THREE.Vector3
+    ) {
         this.scene = scene;
         const geometry = new THREE.BoxGeometry(1, 1, 1);
 
