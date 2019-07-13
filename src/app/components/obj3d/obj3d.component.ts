@@ -14,7 +14,7 @@ import Obj3D from 'src/app/classes/Obj';
   styleUrls: ['./obj3d.component.css']
 })
 export class Obj3dComponent implements OnInit {
-  @Input() public modelUrl: string;
+  @Input() public modelUrl: string='';
   public scene;
   constructor(private inj: Injector) { }
 

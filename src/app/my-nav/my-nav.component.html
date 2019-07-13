@@ -8,9 +8,7 @@
     [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list class="sidenav-list">
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item href="#">Home</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="sidenav-content">
@@ -18,17 +16,13 @@
       <img src="assets/logo.svg" style="width: 20px; height: 20px; padding: 10px;" alt="logo">
       <span>showcase3D</span>
     </mat-toolbar>
-    <scene-3d #scene color='rgba(30, 30, 30, 1)'>
+    <scene-3d #scene color='rgba(230, 230, 230, 1)'>
+
       <object-3d color='green'></object-3d>
       <object-3d color='black'></object-3d>
-      <obj3d></obj3d>
-      <!-- <object-3d color='white'></object-3d>
-      <object-3d color='yellow'></object-3d>
-      <object-3d color='cyan'></object-3d>
-      <object-3d ></object-3d>
-      <object-3d ></object-3d>
-      <object-3d ></object-3d>
-      <object-3d ></object-3d> -->
+
+      <!-- <obj3d modelUrl='assets/3dModel/cube/3d.obj'></obj3d> -->
+      <!-- <obj3d modelUrl='assets/3dModel/logo1/logo1.obj'></obj3d> -->
     </scene-3d>
   </mat-sidenav-content>
 </mat-sidenav-container>
