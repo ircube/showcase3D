@@ -7,18 +7,12 @@ export default class Obj3D {
         private scene: THREE.Scene,
         private modelUrl?: string
     ) {
-        this.scene = scene;
-
         const oBJLoader = new OBJLoader();
-
-        const scenea = this.scene;
-
         oBJLoader.load(
             this.modelUrl,
             (event) => {
-                scenea.add(event);
+                this.scene.add(event);
             }, null
         )
-
     }
 }
