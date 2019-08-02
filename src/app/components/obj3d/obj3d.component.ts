@@ -2,7 +2,8 @@ import {
   Component,
   OnInit,
   Injector,
-  Input 
+  Input, 
+  AfterViewInit
 } from '@angular/core';
 import { SceneComponent } from '../scene/scene.component';
 import Obj3D from 'src/app/classes/Obj';
@@ -13,17 +14,24 @@ import Obj3D from 'src/app/classes/Obj';
   templateUrl: './obj3d.component.html',
   styleUrls: ['./obj3d.component.css']
 })
-export class Obj3dComponent implements OnInit {
+export class Obj3dComponent implements OnInit, AfterViewInit {
   @Input() public modelUrl: string='';
-  public scene;
+  public sceneComponent;
   constructor(private inj: Injector) { }
-
-  ngOnInit() {
-    this.scene = this.inj.get(SceneComponent).scene;
+  async ngOnInit() {
+    // this.setupHtml();
+    // this.setupThreeScene(this.sceneContainer, this.color);
+    // this.scene.onWindowResize();
+    console.log('inj',this.inj.get(SceneComponent));
+    this.sceneComponent = await this.inj.get(SceneComponent);
+    console.log('this.scene ',this.sceneComponent);
     let obj3D = new Obj3D(
-      this.scene.scene,
+      this.sceneComponent.scene.scene,
       this.modelUrl
     );
+
+  }
+  ngAfterViewInit(): void {
   }
 
 }
