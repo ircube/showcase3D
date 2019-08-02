@@ -1,7 +1,6 @@
 import * as THREE from 'three';
-// var OrbitControls = require('three-orbit-controls')(THREE)
-import * as OB from 'three-orbit-controls';
-const OrbitControls = OB(THREE);
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+
 
 export class Scene {
     private scene: THREE.Scene;
@@ -12,7 +11,12 @@ export class Scene {
 
     constructor(container: HTMLElement, color) {
         this.scene = new THREE.Scene();
-        this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        this.camera = new THREE.PerspectiveCamera(
+            75,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            1000
+        );
         this.container = container;
         this.canvas = document.createElement('canvas');
         this.canvas.id = 'CursorLayer';
@@ -27,25 +31,39 @@ export class Scene {
         });
 
         this.container.appendChild(this.renderer.domElement);
-        this.renderer.setSize(this.canvas.width, this.canvas.height);
-
-
+        this.renderer.setSize(
+            this.canvas.width,
+            this.canvas.height
+        );
 
         this.camera.position.z = 5;
 
         this.animate();
-        window.addEventListener('resize', () => { this.onWindowResize(); }, false);
+        window.addEventListener(
+            'resize',
+            () => { this.onWindowResize(); },
+            false
+        );
 
-        const controls = new OrbitControls(this.camera, this.renderer.domElement);
+        const controls = new OrbitControls(
+            this.camera,
+            this.renderer.domElement
+        );
+
         controls.target.set(0, 1, 0);
         controls.update();
     }
 
     public onWindowResize() {
-        this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
+        this.camera.aspect =
+            this.container.clientWidth /
+            this.container.clientHeight;
         // this.camera.updateProjectionMatrix();
 
-        this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+        this.renderer.setSize(
+            this.container.clientWidth,
+            this.container.clientHeight
+        );
         this.camera.updateProjectionMatrix();
     }
 
