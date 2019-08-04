@@ -22,9 +22,7 @@ export class Obj3dComponent implements OnInit, AfterViewInit {
     // this.setupHtml();
     // this.setupThreeScene(this.sceneContainer, this.color);
     // this.scene.onWindowResize();
-    console.log('inj',this.inj.get(SceneComponent));
     this.sceneComponent = await this.inj.get(SceneComponent);
-    console.log('this.scene ',this.sceneComponent);
     let obj3D = new Obj3D(
       this.sceneComponent.scene.scene,
       this.modelUrl

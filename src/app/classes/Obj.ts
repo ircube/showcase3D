@@ -7,7 +7,6 @@ export default class Obj3D {
         private scene: any,
         private modelUrl?: string
     ) {
-        console.log('obj3d scene: ',scene);
         
         const oBJLoader = new OBJLoader();
         oBJLoader.load(
